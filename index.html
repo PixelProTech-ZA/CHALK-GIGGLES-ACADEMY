@@ -377,8 +377,9 @@ const phaseOf=g=>g<=3?'F':g<=6?'I':g<=9?'S':'H';
 const PHASE_NAME={F:'Foundation Phase',I:'Intermediate Phase',S:'Senior Phase',H:'FET Phase'};
 const personaOf=g=>g<=3?'Playful teacher':g<=7?'Clever teacher':'Professor mode';
 function topicsFor(key,g){const t=TOPICS[key]||[];return Array.isArray(t)?t:(t[phaseOf(g)]||[])}
+const DEFAULT_WORKER='https://ai-classroom.lindokuhlerojasmabika.workers.dev';
 const S={grade:8,subject:'maths',topic:'',pace:'steady',mode:'teach',muted:false,token:0,history:[],question:null,last:null,asked:0,correct:0,snaps:[],view:null,
-  worker:(()=>{try{return localStorage.getItem('aic_worker')||''}catch{return''}})(),connected:false,started:false};
+  worker:(()=>{try{return localStorage.getItem('aic_worker')||DEFAULT_WORKER}catch{return DEFAULT_WORKER}})(),connected:false,started:false};
 
 /* ---------- background symbols ---------- */
 (function(){const el=$('#syms');const sy=['π','√','x²','∑','∫','÷','×','=','Δ','θ','∞','%','7','12','a²+b²','y=mx+c'];
