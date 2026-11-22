@@ -329,7 +329,7 @@ canvas#fx{position:fixed;inset:0;z-index:60;pointer-events:none}
       <div class="meter" title="Correct practice answers this session"><i id="mbar"></i></div>
       <span class="note" id="mtxt">0 of 0 practice answers correct</span>
     </div>
-    <p class="note">Honest status: every grade (1–12) and subject is selectable and the teacher style changes with the grade (playful, clever, professor). The AI itself is <b>not connected yet</b>, so only the demo lesson runs. Topic lists are working lists, <b>not yet checked against CAPS documents</b>; curriculum retrieval, photo homework, accounts and the admin area are not built. Mistake history is stored only on this device.</p>
+    <p class="note">Honest status: every grade (1–12) and subject is selectable and the teacher style changes with the grade (playful, clever, professor). The AI itself is <span id="aiState"><b>not connected yet</b>, so only the demo lesson runs.</span> Topic lists are working lists, <b>not yet checked against CAPS documents</b>; curriculum retrieval, photo homework, accounts and the admin area are not built. Mistake history is stored only on this device.</p>
   </section>
 
   <aside class="panel side">
@@ -401,7 +401,7 @@ $$('[data-pace]').forEach(b=>b.onclick=()=>{S.pace=b.dataset.pace;markPills();sy
 $$('[data-mode]').forEach(b=>b.onclick=()=>{S.mode=b.dataset.mode;markPills();modeClick()});
 markPills();
 $('#muteBtn').onclick=()=>{S.muted=!S.muted;$('#muteBtn').textContent=S.muted?'🔇 Voice off':'🔊 Voice on';if(S.muted)stopSpeech()};
-function setConn(ok,txt){S.connected=ok;$('#statusChip').classList.toggle('ok',ok);$('#statusTxt').textContent=txt}
+function setConn(ok,txt){S.connected=ok;const st=$('#aiState');if(st)st.innerHTML=ok?'connected through the school\'s secure Worker, so teaching comes from the AI.':'<b>not connected yet</b>, so only the demo lesson runs.';$('#statusChip').classList.toggle('ok',ok);$('#statusTxt').textContent=txt}
 if(S.worker)setConn(false,'Backend: checking…');
 
 /* ---------- robot ---------- */
