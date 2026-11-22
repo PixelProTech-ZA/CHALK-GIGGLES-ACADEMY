@@ -1,0 +1,14 @@
+name = "ai-classroom"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+# Change the model any time without touching code. Any OpenRouter model slug works;
+# pick one that supports JSON output. This is an example, not a recommendation.
+OPENROUTER_MODEL = "openai/gpt-4o-mini"
+# Set to your exact site origin once hosted, e.g. "https://yourname.github.io"
+ALLOWED_ORIGIN = "*"
+SITE_URL = "https://pixelprotechsolutions.co.za"
+RATE_LIMIT_PER_MIN = "20"
+
+# Secret (never put in this file):  npx wrangler secret put OPENROUTER_API_KEY
